@@ -11,8 +11,8 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 locale                   : "en-US"
 title                    : "Site Title"
 title_separator          : "-"
-name                     : "Your Name"
-description              : "An amazing website."
+name                     : "Jerin Jose "
+description              : "My Data Science Portfolio."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -84,10 +84,13 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Jerin Jose"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
+  bio              : "I am a strategist and critical thinker obsessed with solving problems that i am passionate about. I utilise the power of data science and modern
+                      computational methods to acheive the results that i want. I am currently a MS Business Analytics candidate at
+                      University of Texas at Dallas. Previously i worked as a Policy Analyst at the Office of
+                      the Minister of State for Civil Aviation in India and was also a Young India Fellow at Ashoka University."
+  location         : "Dallas, Texas"
   email            :
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
@@ -97,13 +100,13 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           :
+  github           : https://github.com/jerin-jo
   gitlab           :
   google_plus      :
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         : # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
+  linkedin         : "jose-jerin"
   pinterest        :
   soundcloud       :
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
@@ -243,6 +246,18 @@ compress_html:
 # Defaults
 defaults:
   # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: # true
+      share: true
+      related: true
+
+  # _pages
   - scope:
       path: ""
       type: posts
