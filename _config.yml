@@ -85,7 +85,7 @@ analytics:
 # Site Author
 author:
   name             : "Jerin Jose"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/images/jerinjose.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am a strategist and critical thinker obsessed with solving problems that i am passionate about. I utilise the power of data science and modern
                       computational methods to acheive the results that i want. I am currently a MS Business Analytics candidate at
                       University of Texas at Dallas. Previously i worked as a Policy Analyst at the Office of
