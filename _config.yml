@@ -9,7 +9,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "Jerin Jose" #Site title
 title_separator          : "-"
 name                     : "Jerin Jose "
 description              : "My Data Science Portfolio."
@@ -86,11 +86,9 @@ analytics:
 author:
   name             : "Jerin Jose"
   avatar           : "/images/jerinjose.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am a strategist and critical thinker obsessed with solving problems that i am passionate about. I utilise the power of data science and modern
+  bio              : "I am a budding data scientist and strategist interested in Fintech, Public Policy and Healthcare domains. I utilise the power of data science and modern
                       computational methods to acheive the results that i want. I am currently a MS Business Analytics candidate at
-                      University of Texas at Dallas. Previously i worked as a Policy Analyst at the Office of
-                      the Minister of State for Civil Aviation in India and was also a Young India Fellow at Ashoka University."
-  location         : "Dallas, Texas"
+                      University of Texas at Dallas. 
   email            :
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
