@@ -65,6 +65,14 @@
             padding: 80px 40px;
         }
         
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
         header {
             margin-bottom: 140px;
             opacity: 0;
@@ -210,9 +218,51 @@
             background-clip: text;
         }
         
+        .skills-section {
+            margin-bottom: 140px;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease-out 0.6s forwards;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.6), rgba(26, 26, 46, 0.3));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-left: 3px solid var(--cyan);
+            transition: all 0.4s ease;
+        }
+        
+        .skill-category:hover {
+            border-color: rgba(0, 255, 245, 0.3);
+            transform: translateX(5px);
+        }
+        
+        .skill-title {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--cyan);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .skill-list {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+        
         .projects {
             display: grid;
-            gap: 60px;
+            gap: 40px;
             margin-bottom: 100px;
         }
         
@@ -234,6 +284,9 @@
         .project:nth-child(4) { animation-delay: 1.1s; }
         .project:nth-child(5) { animation-delay: 1.2s; }
         .project:nth-child(6) { animation-delay: 1.3s; }
+        .project:nth-child(7) { animation-delay: 1.4s; }
+        .project:nth-child(8) { animation-delay: 1.5s; }
+        .project:nth-child(9) { animation-delay: 1.6s; }
         
         .project::before {
             content: '';
@@ -252,7 +305,6 @@
         
         .project:hover {
             border-color: rgba(0, 255, 245, 0.2);
-            transform: translateX(10px);
         }
         
         .project-top {
@@ -275,12 +327,19 @@
             font-weight: 700;
             color: var(--text);
             flex: 1;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .project-title:hover {
+            color: var(--cyan);
         }
         
         .project-content {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
         
         .project-section {
@@ -307,7 +366,6 @@
             background: linear-gradient(135deg, rgba(0, 255, 245, 0.05), rgba(255, 0, 110, 0.05));
             border-left: 3px solid var(--cyan);
             padding: 25px;
-            margin: 20px 0;
         }
         
         .impact-highlight .section-text {
@@ -337,6 +395,89 @@
             transform: translateY(-2px);
         }
         
+        /* Detail Page Styles */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: var(--cyan);
+            text-decoration: none;
+            padding: 12px 0;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .back-button:hover {
+            color: var(--text);
+            transform: translateX(-5px);
+        }
+        
+        .detail-hero {
+            margin-bottom: 60px;
+        }
+        
+        .detail-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(120deg, var(--cyan), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .star-section {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.6), rgba(26, 26, 46, 0.3));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 50px;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--cyan);
+        }
+        
+        .star-label {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--cyan);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .star-text {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+        
+        .star-text ul {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+        
+        .star-text li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        
+        .star-section.impact {
+            background: linear-gradient(135deg, rgba(0, 255, 245, 0.08), rgba(255, 0, 110, 0.08));
+            border-left-color: var(--pink);
+        }
+        
+        .star-section.impact .star-label {
+            color: var(--pink);
+        }
+        
+        .star-section.impact .star-text {
+            color: var(--text);
+        }
+        
         footer {
             text-align: center;
             padding: 60px 0;
@@ -344,7 +485,7 @@
             color: var(--text-dim);
             font-size: 0.9rem;
             opacity: 0;
-            animation: fadeSlideUp 1s ease-out 1.4s forwards;
+            animation: fadeSlideUp 1s ease-out 1.7s forwards;
         }
         
         @media (max-width: 768px) {
@@ -363,212 +504,881 @@
             .metrics {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .star-section {
+                padding: 30px 25px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="noise"></div>
     <div class="container">
-        <header>
-            <h1 class="name">Jerin Jose</h1>
-            <p class="tagline">Business Intelligence Engineer crafting data-driven solutions at scale. Specializing in AWS cloud architecture, ETL pipelines, and AI-powered analytics that transform complex data into strategic insights.</p>
-            <div class="contact-grid">
-                <a href="mailto:jerinjose1906@gmail.com" class="contact-link">jerinjose1906@gmail.com</a>
-                <a href="https://www.linkedin.com/in/jerin-jose" target="_blank" class="contact-link">linkedin</a>
-                <a href="https://github.com/jerin-jo" target="_blank" class="contact-link">github</a>
-                <a href="https://public.tableau.com/profile/jerin.jose" target="_blank" class="contact-link">tableau</a>
-                <a href="tel:+12148924763" class="contact-link">(214) 892-4763</a>
+        <!-- Main Page -->
+        <div id="main-page" class="page active">
+            <header>
+                <h1 class="name">Jerin Jose</h1>
+                <p class="tagline">Business Intelligence Engineer crafting data-driven solutions at scale. Specializing in AWS cloud architecture, ETL pipelines, and AI-powered analytics that transform complex data into strategic insights.</p>
+                <div class="contact-grid">
+                    <a href="mailto:jerinjose1906@gmail.com" class="contact-link">jerinjose1906@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/jerinjoseatx" target="_blank" class="contact-link">LinkedIn</a>
+                    <a href="https://github.com/jerin-jo" target="_blank" class="contact-link">GitHub</a>
+                    <a href="https://public.tableau.com/app/profile/jose.jerin/vizzes" target="_blank" class="contact-link">Tableau</a>
+                    <a href="tel:+12148924763" class="contact-link">(214) 892-4763</a>
+                </div>
+            </header>
+            
+            <div class="metrics">
+                <div class="metric-card">
+                    <div class="metric-value">$21M</div>
+                    <div class="metric-label">Margin Improvement</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">$800K+</div>
+                    <div class="metric-label">Annual Cost Savings</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">2M+</div>
+                    <div class="metric-label">Products/Day</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">90%</div>
+                    <div class="metric-label">Efficiency Gain</div>
+                </div>
             </div>
-        </header>
+            
+            <div class="skills-section">
+                <h2 class="section-header"><span>Core</span> Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <div class="skill-title">Cloud & Data Engineering</div>
+                        <div class="skill-list">AWS (Glue, Redshift, Athena, S3), BigQuery, GCP, ETL Pipelines, Airflow, dbt</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">Programming & Tools</div>
+                        <div class="skill-list">SQL (Advanced), Python, Spark SQL, PySpark, Git</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">Visualization & Reporting</div>
+                        <div class="skill-list">Tableau, QuickSight, Power BI, Looker, Alteryx, Data Storytelling, Automated KPI Dashboards</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">AI & Automation</div>
+                        <div class="skill-list">AI-assisted report generation (LLM integration), Python-based automation, Self-service chatbot design</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">Business Analytics</div>
+                        <div class="skill-list">Financial & Operational Data Analytics, Insights & Recommendations, KPI Tracking, Leadership Reporting</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">Project Leadership</div>
+                        <div class="skill-list">Customer Obsession, Technical Writing, Proactive Communication, Active Listening, Attention to Detail</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="section-header"><span>Featured</span> Projects</h2>
+            
+            <div class="projects">
+                <!-- Project 1: AI Analytics -->
+                <div class="project">
+                    <div class="project-top">
+                        <span class="project-number">01</span>
+                        <h3 class="project-title" onclick="showDetail('ai-analytics')">AI-Powered Self-Service Analytics Platform</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <div class="section-label">Challenge</div>
+                            <div class="section-text">Executive teams needed faster access to insights from weekly business review slides, with manual analysis creating bottlenecks in decision-making processes.</div>
+                        </div>
+                        <div class="project-section">
+                            <div class="section-label">Solution</div>
+                            <div class="section-text">Designed LLM-based analytics platform utilizing Amazon Q and Anthropic models that generates real-time, context-aware insights with WoW/MoM/YoY comparisons.</div>
+                        </div>
+                        <div class="project-section impact-highlight">
+                            <div class="section-label">Impact</div>
+                            <div class="section-text">Transformed hours of manual analysis into instant insights. Enabled self-service analytics for non-technical stakeholders across Amazon Fresh operations.</div>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Amazon Q</span>
+                        <span class="tech-tag">Anthropic LLM</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">AWS</span>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Failed Scans -->
+                <div class="project">
+                    <div class="project-top">
+                        <span class="project-number">02</span>
+                        <h3 class="project-title" onclick="showDetail('failed-scans')">Automated Root-Cause Analysis System</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <div class="section-label">Challenge</div>
+                            <div class="section-text">Amazon Fresh stores experienced 45K weekly failed product scans (items that couldn't be rung up at checkout or identified by store associates) with no systematic way to identify root causes at scale, causing delays in resolution and significant operational impact.</div>
+                        </div>
+                        <div class="project-section">
+                            <div class="section-label">Solution</div>
+                            <div class="section-text">Built comprehensive defect waterfall system that automatically identifies, categorizes, and analyzes scan failures in real-time with clear resolution paths.</div>
+                        </div>
+                        <div class="project-section impact-highlight">
+                            <div class="section-label">Impact</div>
+                            <div class="section-text">$800K annual cost savings. Defined 5 defects accounting for 25% of all instore failed scans with clear resolution paths through existing SOPs.</div>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">AWS Redshift</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                </div>
+                
+                <!-- Project 3: ETL Pipeline -->
+                <div class="project">
+                    <div class="project-top">
+                        <span class="project-number">03</span>
+                        <h3 class="project-title" onclick="showDetail('etl-pipeline')">Enterprise ETL Pipeline Architecture</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <div class="section-label">Challenge</div>
+                            <div class="section-text">Processing 2M+ products daily for executive reporting required a scalable, performant data infrastructure handling petabyte-scale datasets.</div>
+                        </div>
+                        <div class="project-section">
+                            <div class="section-label">Solution</div>
+                            <div class="section-text">Architected 10+ AWS-based ETL pipelines using Glue, Redshift, and Athena. Engineered SQL optimizations (3,000+ lines) and developed five core Redshift tables as "Source of Truth".</div>
+                        </div>
+                        <div class="project-section impact-highlight">
+                            <div class="section-label">Impact</div>
+                            <div class="section-text">28% improvement in ETL performance, accelerating data delivery to leadership dashboards and 10+ weekly business review reports.</div>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">AWS Glue</span>
+                        <span class="tech-tag">Redshift</span>
+                        <span class="tech-tag">Athena</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">S3</span>
+                    </div>
+                </div>
+                
+                <!-- Project 4: Markdown Pricing -->
+                <div class="project">
+                    <div class="project-top">
+                        <span class="project-number">04</span>
+                        <h3 class="project-title" onclick="showDetail('markdown-pricing')">Markdown Pricing Automation</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <div class="section-label">Challenge</div>
+                            <div class="section-text">Manual markdown pricing across 500+ Whole Foods stores resulted in frequent errors, revenue loss, and inconsistent customer experience.</div>
+                        </div>
+                        <div class="project-section">
+                            <div class="section-label">Solution</div>
+                            <div class="section-text">Engineered automated markdown pricing system with validation rules and built Alteryx-based data workflows for performance monitoring across all stores.</div>
+                        </div>
+                        <div class="project-section impact-highlight">
+                            <div class="section-label">Impact</div>
+                            <div class="section-text">90% reduction in pricing errors and $21M gross margin improvement. Extended solution to Canadian stores, standardizing pricing across North America.</div>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Alteryx</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Tableau</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                </div>
+                
+                <!-- Project 5: Vendor Sourcing -->
+                <div class="project">
+                    <div class="project-top">
+                        <span class="project-number">05</span>
+                        <h3 class="project-title" onclick="showDetail('vendor-sourcing')">Self-Service BI Dashboard for Vendor Sourcing</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <div class="section-label">Challenge</div>
+                            <div class="section-text">Category teams had to download 4+ distributor catalogs and filter through 500K+ lines of data to identify procurement sourcing paths.</div>
+                        </div>
+                        <div class="project-section">
+                            <div class="section-label">Solution</div>
+                            <div class="section-text">Built end-to-end solution: Created unified QuickSight dashboard with intuitive search interface by consolidating 3 distributor catalogs, developing ETL pipeline to standardize and integrate 500K+ catalog items and automating daily data refreshes.</div>
+                        </div>
+                        <div class="project-section impact-highlight">
+                            <div class="section-label">Impact</div>
+                            <div class="section-text">90% reduction in vendor sourcing time (from 10+ minutes to under 2 minutes). Saves 20 hours annually per Vendor Manager.</div>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">AWS QuickSight</span>
+                        <span class="tech-tag">ETL</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Data Integration</span>
+                    </div>
+                </div>
+                
+                <!-- Project 6: Flex Resets -->
+                <div class="project">
+                    <div class="project-top">
+                        <span class="project-number">06</span>
+                        <h3 class="project-title" onclick="showDetail('flex-resets')">Self-Service Dashboard for Flex Resets Tracking</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <div class="section-label">Challenge</div>
+                            <div class="section-text">Only major resets were tracked in NA Fresh Defects reporting, causing the team to lose track of net new defects from Flex resets requiring resolution.</div>
+                        </div>
+                        <div class="project-section">
+                            <div class="section-label">Solution</div>
+                            <div class="section-text">Developed ETL job converting Flex resets S3 data into queryable Andes table and built dashboard with reset tracking and action dates.</div>
+                        </div>
+                        <div class="project-section impact-highlight">
+                            <div class="section-label">Impact</div>
+                            <div class="section-text">Improved visibility of flex resets across multiple stakeholder teams. Reduced manual effort in identifying defective ASINs for Category Management and Vendor Management teams.</div>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">AWS QuickSight</span>
+                        <span class="tech-tag">ETL</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">AWS S3</span>
+                        <span class="tech-tag">SQL</span>
+                    </div>
+                </div>
+                
+                <!-- Project 7: Ordering Defects -->
+                <div class="project">
+                    <div class="project-top">
+                        <span class="project-number">07</span>
+                        <h3 class="project-title" onclick="showDetail('ordering-defects')">Defect Resolution through Logic Changes</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <div class="section-label">Challenge</div>
+                            <div class="section-text">Ordering Procurability Defects data had significant complexity creating ambiguity, making it difficult for stakeholders to interpret accurate signals for procurement.</div>
+                        </div>
+                        <div class="project-section">
+                            <div class="section-label">Solution</div>
+                            <div class="section-text">Implemented comprehensive update to Ordering defects logic, created 3 new defect types, and simplified relevant_pog logic using single source of truth table.</div>
+                        </div>
+                        <div class="project-section impact-highlight">
+                            <div class="section-label">Impact</div>
+                            <div class="section-text">27 basis points improvement to overall Procurability Defects CTM. 69% Week-over-Week reduction in Ordering Defects affecting 1.3K unique ASINs.</div>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">AWS Redshift</span>
+                        <span class="tech-tag">Data Modeling</span>
+                        <span class="tech-tag">ETL</span>
+                    </div>
+                </div>
+                
+                <!-- Project 8: LTO Readiness -->
+                <div class="project">
+                    <div class="project-top">
+                        <span class="project-number">08</span>
+                        <h3 class="project-title" onclick="showDetail('lto-readiness')">LTO ASIN Readiness Metrics</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <div class="section-label">Challenge</div>
+                            <div class="section-text">Limited Time Offer (LTO) promotions required tracking 5+ separate metrics across different systems to ensure products were ready for sale, making it difficult to get a clear yes/no answer on readiness.</div>
+                        </div>
+                        <div class="project-section">
+                            <div class="section-label">Solution</div>
+                            <div class="section-text">Developed singular readiness metric consolidating 5+ defect and catalog checks with daily automated reporting through scheduled datanet job.</div>
+                        </div>
+                        <div class="project-section impact-highlight">
+                            <div class="section-label">Impact</div>
+                            <div class="section-text">Simplified defect sprint actions with one consolidated metric. Category teams can now achieve 100% Assortment Readiness by LTO Event defect gate.</div>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Automation</span>
+                        <span class="tech-tag">Metrics Development</span>
+                    </div>
+                </div>
+                
+                <!-- Project 9: Data Quality -->
+                <div class="project">
+                    <div class="project-top">
+                        <span class="project-number">09</span>
+                        <h3 class="project-title" onclick="showDetail('data-quality')">Data Accuracy & Quality Improvements</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-section">
+                            <div class="section-label">Challenge</div>
+                            <div class="section-text">Multiple data quality issues affected defect tracking including incorrect owner assignments, false positives, duplicates, and inconsistent VMI/consignment designation.</div>
+                        </div>
+                        <div class="project-section">
+                            <div class="section-label">Solution</div>
+                            <div class="section-text">Fixed defect owner attribution logic, resolved duplicate data issues, updated VMI sources to use single source of truth, and corrected PSL ETL job.</div>
+                        </div>
+                        <div class="project-section impact-highlight">
+                            <div class="section-label">Impact</div>
+                            <div class="section-text">Enabled proper defect assignment to responsible teams. Improved data integrity and reporting accuracy through consolidated sources and corrected attribution.</div>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">AWS Redshift</span>
+                        <span class="tech-tag">ETL</span>
+                        <span class="tech-tag">Data Quality</span>
+                    </div>
+                </div>
+            </div>
+            
+            <footer>
+                <p>© 2024 Jerin Jose — Austin, Texas</p>
+                <p>Building data solutions that drive business impact</p>
+            </footer>
+        </div>
         
-        <div class="metrics">
-            <div class="metric-card">
-                <div class="metric-value">$800K+</div>
-                <div class="metric-label">Annual Cost Savings</div>
+        <!-- Detail Pages -->
+        <!-- AI Analytics Detail -->
+        <div id="ai-analytics" class="page">
+            <div class="back-button" onclick="showMain()">← Back to Projects</div>
+            <div class="detail-hero">
+                <h1 class="detail-title">AI-Powered Self-Service Analytics Platform</h1>
             </div>
-            <div class="metric-card">
-                <div class="metric-value">10+</div>
-                <div class="metric-label">ETL Pipelines</div>
+            
+            <div class="star-section">
+                <div class="star-label">Situation</div>
+                <div class="star-text">Executive teams needed faster access to insights from weekly business review slides, with manual analysis creating bottlenecks in decision-making processes across Amazon Fresh operations.</div>
             </div>
-            <div class="metric-card">
-                <div class="metric-value">2M+</div>
-                <div class="metric-label">Products/Day</div>
+            
+            <div class="star-section">
+                <div class="star-label">Task</div>
+                <div class="star-text">Create a self-service solution that enables non-technical stakeholders to generate insights from WBR slides without manual data analysis, reducing turnaround time from hours to minutes while maintaining analytical rigor and context.</div>
             </div>
-            <div class="metric-card">
-                <div class="metric-value">90%</div>
-                <div class="metric-label">Efficiency Gain</div>
+            
+            <div class="star-section">
+                <div class="star-label">Action</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Integrated Amazon Q and Anthropic LLM models into a unified analytics platform</li>
+                        <li>Developed upload functionality allowing users to submit WBR slides for automated analysis</li>
+                        <li>Implemented context-aware insight generation with historical data integration</li>
+                        <li>Built predefined metric tracking (WoW, MoM, YoY) for consistent reporting</li>
+                        <li>Designed intuitive interface for section-specific insights extraction</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="star-section impact">
+                <div class="star-label">Results & Impact</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Transformed hours of manual analysis into instant, comprehensive insights</li>
+                        <li>Enabled self-service analytics for non-technical stakeholders across Amazon Fresh operations</li>
+                        <li>Significantly improved decision-making speed and accessibility</li>
+                        <li>Reduced dependency on technical teams for routine analytical queries</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">Amazon Q</span>
+                <span class="tech-tag">Anthropic LLM</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">AWS</span>
             </div>
         </div>
         
-        <h2 class="section-header"><span>Featured</span> Projects</h2>
-        
-        <div class="projects">
-            <div class="project">
-                <div class="project-top">
-                    <span class="project-number">01</span>
-                    <h3 class="project-title">AI-Powered Self-Service Analytics Platform</h3>
-                </div>
-                <div class="project-content">
-                    <div class="project-section">
-                        <div class="section-label">Challenge</div>
-                        <div class="section-text">Executive teams needed faster access to insights from weekly business review slides, with manual analysis creating bottlenecks in decision-making processes.</div>
-                    </div>
-                    <div class="project-section">
-                        <div class="section-label">Solution</div>
-                        <div class="section-text">Designed and implemented an LLM-based analytics platform utilizing Amazon Q and Anthropic models. Users upload WBR slides and receive section-specific insights in real-time with integrated historical context and predefined metrics (WoW, MoM, YoY).</div>
-                    </div>
-                </div>
-                <div class="impact-highlight">
-                    <div class="section-label">Impact</div>
-                    <div class="section-text">Transformed hours of manual analysis into instant, comprehensive insights. Enabled self-service analytics for non-technical stakeholders across Amazon Fresh operations.</div>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">Amazon Q</span>
-                    <span class="tech-tag">Anthropic LLM</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">AWS</span>
+        <!-- Failed Scans Detail -->
+        <div id="failed-scans" class="page">
+            <div class="back-button" onclick="showMain()">← Back to Projects</div>
+            <div class="detail-hero">
+                <h1 class="detail-title">Failed Scans Waterfall Development</h1>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Situation</div>
+                <div class="star-text">Amazon Fresh stores in North America experience on average 45K failed scans each week across associate tooling (instore operations) and customer transactions across POS (traditional Point of Sale), SCO (Self-checkout terminals) & ECO DASH (dash carts). Each failed scan has significant impact (OPS, shrink, labor hrs) on store ops, customer experience and several cross functional stakeholders to determine the root cause followed by the corresponding resolution addressing each issue 1x1. Amazon Fresh lacked the ability to identify root causes at scale and caused delays in resolution of issues with significant impact on store ops and customer experience.</div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Task</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Implement a comprehensive defect waterfall for failed scans to map the root cause of failure to each scan failure</li>
+                        <li>Define key defect types causing failed scans</li>
+                        <li>Establish clear defect attribution methodology for each failed scan</li>
+                        <li>Create central repository for failed scans data</li>
+                        <li>Integrate the data and waterfall methods with existing Defects WBR process</li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="project">
-                <div class="project-top">
-                    <span class="project-number">02</span>
-                    <h3 class="project-title">Automated Root-Cause Analysis System</h3>
-                </div>
-                <div class="project-content">
-                    <div class="project-section">
-                        <div class="section-label">Challenge</div>
-                        <div class="section-text">Failed product scans required extensive manual investigation, consuming significant operational resources and delaying issue resolution.</div>
-                    </div>
-                    <div class="project-section">
-                        <div class="section-label">Solution</div>
-                        <div class="section-text">Developed an automated diagnostic system that identifies, categorizes, and analyzes scan failures in real-time, providing actionable recommendations for resolution.</div>
-                    </div>
-                </div>
-                <div class="impact-highlight">
-                    <div class="section-label">Impact</div>
-                    <div class="section-text">$800K annual cost savings through reduced manual intervention. Accelerated issue resolution and improved operational efficiency across Amazon Fresh stores.</div>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">AWS Redshift</span>
-                    <span class="tech-tag">SQL</span>
-                    <span class="tech-tag">Automation</span>
+            <div class="star-section">
+                <div class="star-label">Action</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Led stakeholder interviews and data analysis to understand root causes of failed scans and identify areas for improvement</li>
+                        <li>Defined 5 defects accounting for ~25% of all instore failed scans working closely with the AFS Buyability Defects PM</li>
+                        <li>Helped create resolution paths for each of the defect buckets defined through existing F3RS SOPs by working with the AFS Buyability Defects PM</li>
+                        <li>Established central repository at \ANT\dept\AmazonFresh\NARetail\Catalog\Buyability\FailedScans</li>
+                        <li>Integrated the solution into AFS Defects WBR through a Failed Scans Specific Slide with Waterfall attribution</li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="project">
-                <div class="project-top">
-                    <span class="project-number">03</span>
-                    <h3 class="project-title">Enterprise ETL Pipeline Architecture</h3>
-                </div>
-                <div class="project-content">
-                    <div class="project-section">
-                        <div class="section-label">Challenge</div>
-                        <div class="section-text">Processing 2M+ products daily for executive reporting required a scalable, performant data infrastructure that could handle petabyte-scale datasets.</div>
-                    </div>
-                    <div class="project-section">
-                        <div class="section-label">Solution</div>
-                        <div class="section-text">Architected and maintained 10+ AWS-based ETL pipelines using Glue, Redshift, and Athena. Engineered SQL optimizations (3,000+ lines) and developed five core Redshift tables as the "Source of Truth".</div>
-                    </div>
-                </div>
-                <div class="impact-highlight">
-                    <div class="section-label">Impact</div>
-                    <div class="section-text">28% improvement in ETL performance, accelerating data delivery to leadership dashboards and 10+ weekly business review reports. Enabled effective defect tracking across entire product assortment.</div>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">AWS Glue</span>
-                    <span class="tech-tag">Redshift</span>
-                    <span class="tech-tag">Athena</span>
-                    <span class="tech-tag">SQL</span>
-                    <span class="tech-tag">S3</span>
+            <div class="star-section impact">
+                <div class="star-label">Results & Impact</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Buyability driven defect waterfall attribution completed and live as part of Defects WBR</li>
+                        <li>Defined 5 defects accounting for ~25% of all instore failed scans</li>
+                        <li>Each defect has a clear path to resolution actioned weekly through existing F3RS SOPs</li>
+                        <li><strong>Business value of $800K</strong> (labor savings across tech, non-tech & support ops + OPS loss + shrink)</li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="project">
-                <div class="project-top">
-                    <span class="project-number">04</span>
-                    <h3 class="project-title">Self-Service BI Dashboard for Vendor Sourcing</h3>
-                </div>
-                <div class="project-content">
-                    <div class="project-section">
-                        <div class="section-label">Challenge</div>
-                        <div class="section-text">Vendor sourcing queries across 3 major distributor networks consumed significant time, preventing teams from focusing on strategic initiatives.</div>
-                    </div>
-                    <div class="project-section">
-                        <div class="section-label">Solution</div>
-                        <div class="section-text">Built interactive AWS QuickSight dashboards with intuitive query interfaces, enabling non-technical stakeholders to independently access vendor and product information.</div>
-                    </div>
-                </div>
-                <div class="impact-highlight">
-                    <div class="section-label">Impact</div>
-                    <div class="section-text">90% reduction in vendor sourcing time. Democratized data access and empowered teams to make faster, data-driven decisions without technical dependencies.</div>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">AWS QuickSight</span>
-                    <span class="tech-tag">SQL</span>
-                    <span class="tech-tag">Data Modeling</span>
-                </div>
-            </div>
-            
-            <div class="project">
-                <div class="project-top">
-                    <span class="project-number">05</span>
-                    <h3 class="project-title">Product Quality Defect Resolution System</h3>
-                </div>
-                <div class="project-content">
-                    <div class="project-section">
-                        <div class="section-label">Challenge</div>
-                        <div class="section-text">Inaccurate product selection affected customer experience across 2M+ item assortment, requiring systematic identification and resolution.</div>
-                    </div>
-                    <div class="project-section">
-                        <div class="section-label">Solution</div>
-                        <div class="section-text">Partnered cross-functionally to develop automated, scalable BI solutions for defect tracking and resolution, creating semantic data layers for comprehensive quality monitoring.</div>
-                    </div>
-                </div>
-                <div class="impact-highlight">
-                    <div class="section-label">Impact</div>
-                    <div class="section-text">60K+ defects resolved, significantly improving product selection accuracy and customer satisfaction across Amazon Fresh operations.</div>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">Data Modeling</span>
-                    <span class="tech-tag">AWS Redshift</span>
-                    <span class="tech-tag">Analytics</span>
-                </div>
-            </div>
-            
-            <div class="project">
-                <div class="project-top">
-                    <span class="project-number">06</span>
-                    <h3 class="project-title">Markdown Pricing Automation</h3>
-                </div>
-                <div class="project-content">
-                    <div class="project-section">
-                        <div class="section-label">Challenge</div>
-                        <div class="section-text">Manual markdown pricing across 500+ Whole Foods stores resulted in frequent errors, revenue loss, and inconsistent customer experience.</div>
-                    </div>
-                    <div class="project-section">
-                        <div class="section-label">Solution</div>
-                        <div class="section-text">Engineered automated markdown pricing system with validation rules and built Alteryx-based data workflows for performance monitoring across all stores.</div>
-                    </div>
-                </div>
-                <div class="impact-highlight">
-                    <div class="section-label">Impact</div>
-                    <div class="section-text">90% reduction in pricing errors and $21M gross margin improvement. Extended solution to Canadian stores, standardizing pricing across North America.</div>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">Alteryx</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Tableau</span>
-                    <span class="tech-tag">Automation</span>
-                </div>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">AWS Redshift</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">Automation</span>
             </div>
         </div>
         
-        <footer>
-            <p>© 2024 Jerin Jose — Austin, Texas</p>
-            <p>Building data solutions that drive business impact</p>
-        </footer>
+        <!-- ETL Pipeline Detail -->
+        <div id="etl-pipeline" class="page">
+            <div class="back-button" onclick="showMain()">← Back to Projects</div>
+            <div class="detail-hero">
+                <h1 class="detail-title">Enterprise ETL Pipeline Architecture</h1>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Situation</div>
+                <div class="star-text">Processing 2M+ products daily for executive reporting required a scalable, performant data infrastructure that could handle petabyte-scale datasets with high reliability and speed to support critical business decisions.</div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Task</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Architect and maintain scalable ETL pipelines for 2M+ product daily processing</li>
+                        <li>Optimize query performance for petabyte-scale data operations</li>
+                        <li>Develop centralized "Source of Truth" data tables</li>
+                        <li>Ensure data delivery meets SLAs for leadership dashboards and WBRs</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Action</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Architected and maintained 10+ AWS-based ETL pipelines using Glue, Redshift, and Athena</li>
+                        <li>Engineered SQL optimizations across 3,000+ lines of code</li>
+                        <li>Developed five core Redshift tables as the "Source of Truth" for product assortment tracking</li>
+                        <li>Created semantic data layer enabling effective defect tracking across all 2M+ Amazon Fresh product assortment</li>
+                        <li>Implemented automated monitoring and alerting for pipeline health</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="star-section impact">
+                <div class="star-label">Results & Impact</div>
+                <div class="star-text">
+                    <ul>
+                        <li><strong>28% improvement in ETL performance</strong> through SQL optimizations</li>
+                        <li>Accelerated data delivery to leadership dashboards and 10+ weekly business review reports</li>
+                        <li>Enabled effective defect tracking across entire 2M+ product assortment</li>
+                        <li>Provided reliable, consistent data foundation for cross-functional decision-making</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">AWS Glue</span>
+                <span class="tech-tag">Redshift</span>
+                <span class="tech-tag">Athena</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">S3</span>
+            </div>
+        </div>
+        
+        <!-- Markdown Pricing Detail -->
+        <div id="markdown-pricing" class="page">
+            <div class="back-button" onclick="showMain()">← Back to Projects</div>
+            <div class="detail-hero">
+                <h1 class="detail-title">Markdown Pricing Automation</h1>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Situation</div>
+                <div class="star-text">Manual markdown pricing across 500+ Whole Foods stores resulted in frequent errors, revenue loss, and inconsistent customer experience. The manual process was error-prone and time-consuming, leading to significant operational inefficiencies.</div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Task</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Develop automated markdown pricing system to eliminate manual errors</li>
+                        <li>Create validation rules to ensure pricing accuracy</li>
+                        <li>Build monitoring workflows for performance tracking across all stores</li>
+                        <li>Standardize pricing methodology across North American stores</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Action</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Engineered automated markdown pricing system with comprehensive validation rules</li>
+                        <li>Built Alteryx-based data workflows and 5 automated reports to improve visibility into store-level pricing performance and promo execution</li>
+                        <li>Developed Python scripts to automate competitor coverage reporting, reducing manual data gathering time by 20%</li>
+                        <li>Created Markdown Pricing Guidance tool for Canadian stores</li>
+                        <li>Delivered 12+ analytics projects optimizing promotions and pricing</li>
+                        <li>Created SOPs for training new analysts on Markdown pricing & technical documentation</li>
+                        <li>Trained 3+ analysts on building automated pipelines using Alteryx</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="star-section impact">
+                <div class="star-label">Results & Impact</div>
+                <div class="star-text">
+                    <ul>
+                        <li><strong>90% reduction in pricing errors</strong></li>
+                        <li><strong>$21M gross margin improvement</strong></li>
+                        <li>Extended solution to Canadian stores, standardizing pricing across North America</li>
+                        <li>Insights contributed to 40% YOY increase in unit sales</li>
+                        <li>Established scalable training program for future analysts</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">Alteryx</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Tableau</span>
+                <span class="tech-tag">Automation</span>
+            </div>
+        </div>
+        
+        <!-- Vendor Sourcing Detail -->
+        <div id="vendor-sourcing" class="page">
+            <div class="back-button" onclick="showMain()">← Back to Projects</div>
+            <div class="detail-hero">
+                <h1 class="detail-title">Distributor Catalog Lookup Dashboard</h1>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Situation</div>
+                <div class="star-text">A consistent pain point Category teams were facing when attempting to resolve procurability defects and identify a potential Distributor sourcing path was the need to download 4+ distributor catalogs and filter through 500K+ lines of data to identify paths to procurement. Amazon Fresh was unable to bring on exclusive inventory through major distributors like KeHE, UNFI, and Spartan Nash in 2025. When a Category Manager wants to add a net new item, they have to download and open 4 different catalogs that are all formatted differently to find availability of that particular item. They then have to cross reference those catalogs with a file that maps each Amazon Fresh site to each distributor location to ensure that all FCs are covered.</div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Task</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Create a tool that reduces complexity and simplifies the product sourcing and verification process</li>
+                        <li>Consolidate Sources: Provide a single tool to search ASINs and UPCs across three key Distributor partners (KEHE, UNFI-N, UNFI-C)</li>
+                        <li>Reduce time taken for finding new sourcing paths</li>
+                        <li>Minimize manual effort and reduce error potential</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Action</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Developed the Distributor Catalog Lookup QuickSight Dashboard, creating a unified platform that integrates three distinct catalog sources</li>
+                        <li>Automated the complex cross-referencing process between distributor catalog files and Amazon Fresh sites</li>
+                        <li>Standardized varied data formats for consistent analysis</li>
+                        <li>Created intuitive interface for quick sourceability verification</li>
+                        <li>Enabled users to input an ASIN or UPC number and instantly receive: Complete visibility of distributor locations where the item is active, Identification of spokes with no offer availability requiring exclusions, and Consolidated sourceability information across all distributor partners</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="star-section impact">
+                <div class="star-label">Results & Impact</div>
+                <div class="star-text">
+                    <ul>
+                        <li><strong>Reduced sourcing lookup time from 10+ minutes to less than 2 minutes (90% reduction)</strong></li>
+                        <li>Vendor Managers now save 5 hours each quarter, accumulating to 20 hours annually per manager</li>
+                        <li>Enabled better-informed sourcing decisions and supports building a more robust product assortment by efficiently identifying available inventory across distributor networks</li>
+                        <li>Dashboard enables faster response to procurement opportunities</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">AWS QuickSight</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">ETL</span>
+                <span class="tech-tag">Data Integration</span>
+            </div>
+        </div>
+        
+        <!-- Flex Resets Detail -->
+        <div id="flex-resets" class="page">
+            <div class="back-button" onclick="showMain()">← Back to Projects</div>
+            <div class="detail-hero">
+                <h1 class="detail-title">Flex Resets Defects Dashboard</h1>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Situation</div>
+                <div class="star-text">Previously, only major resets were tracked in the NA Fresh Defects reporting and WBR, causing the defect team to lose track of net new defects arising out of Flex resets that needed resolution. An S3 file existed for flex reset dates but the team did not have access or didn't have the technical knowledge to query the data. The team needed a solution that can be used to track Flex resets and the defects arising out of it which can also be used by the Category teams for better tracking and proactive defect management.</div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Task</div>
+                <div class="star-text">Create a tool that reduces the complexity and simplifies the process of defect resolution for flex resets which was done manually. Enable visibility and tracking for flex resets across multiple stakeholder teams.</div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Action</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Developed ETL job to convert Flex resets S3 data into a queryable Andes table</li>
+                        <li>Designed and built a Flex resets dashboard with reset tracking and action dates</li>
+                        <li>Coordinated with NA Fresh Catalog Defects team and Central Selection team for requirements and feedback as part of the data UAT</li>
+                        <li>Implemented automated and daily refresh of the data for the dashboard</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="star-section impact">
+                <div class="star-label">Results & Impact</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Successfully deployed Flex Resets dashboard with ETL, Table Creation and Dashboard creation steps</li>
+                        <li>Integrated the Flex Resets Dashboard into an already existing Flex Data Dashboard maintained by the Central Selection team</li>
+                        <li>Improved visibility of flex resets across multiple stakeholder teams (Catalog Defects, Vendor Management, F3RS, Category Management, Private Brand) through the Dashboard</li>
+                        <li>Reduced manual effort in identifying defective ASINs for multiple stakeholders</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">AWS S3</span>
+                <span class="tech-tag">ETL</span>
+                <span class="tech-tag">QuickSight</span>
+                <span class="tech-tag">SQL</span>
+            </div>
+        </div>
+        
+        <!-- Ordering Defects Detail -->
+        <div id="ordering-defects" class="page">
+            <div class="back-button" onclick="showMain()">← Back to Projects</div>
+            <div class="detail-hero">
+                <h1 class="detail-title">Ordering Defects Logic Update</h1>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Situation</div>
+                <div class="star-text">The Ordering Procurability Defects data presented significant complexity due to our handling of item-offers at a store/FC level and varying sourcing paths across regions. This complexity created substantial ambiguity in the data, making it difficult for stakeholder teams to interpret accurate signals required in the buying system for enabling procurability. The existing defect categorization lacked clarity on ownership and actionability.</div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Task</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Implement a comprehensive update to the Ordering defects logic within the Procurability waterfall</li>
+                        <li>Improving the accuracy of in-stock attributable defects to enable more efficient resolution pathways</li>
+                        <li>Developing actionable defect buckets that truly impact item procurability with clear ownership</li>
+                        <li>Addressing the underlying data ambiguity and accountability gaps that were causing extensive manual investigation</li>
+                        <li>Implementing the necessary code changes to support the new defect categorization structure in the Table logic</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Action</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Led stakeholder interviews and data analysis to understand the root causes of incorrect defect attribution and identify areas for improvement, working closely with NA Fresh Defects team, DC Retail Execution (DCRx), Instock team, Grocery Supply Chain Tech (GSC) and Grocery Instock Product (GRIP) teams</li>
+                        <li>Implemented technical changes in the Table logic, writing code to reclassify Disabled Transship as an intentional defect type, created 3 new defect types: "ASIN not on GPOG", "ASIN not in SDS" & "Ambient Needs DC Slot"</li>
+                        <li>Simplified the relevant_pog logic by using the single source of truth table for ASIN-Vendor POG 1:1 mappings. It removed the duplicates and removed noise from the data</li>
+                        <li>Established clear ownership for each defect type</li>
+                        <li>Created documentation and conducted UAT sessions with stakeholders to validate the new defect logic, ensuring the changes truly addressed their needs</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="star-section impact">
+                <div class="star-label">Results & Impact</div>
+                <div class="star-text">
+                    <ul>
+                        <li><strong>Drove an improvement of ~27 basis points to overall Procurability Defects CTM</strong></li>
+                        <li><strong>Achieved ~40 basis points improvement to Ordering Defects CTM (a 69% Week-over-Week reduction, down to ~18 bps)</strong></li>
+                        <li>Increased defect attribution accuracy for ~1.3K unique ASINs</li>
+                        <li>Slotting Defects Updates: ~2.3 bps improvement to Ordering CTM, ~1.5 hours/week/DCRx time savings</li>
+                        <li>Instock-Owned Non-Intentional Defects: ~32 bps improvement to Ordering CTM, 2-3 hours/week/ISM savings</li>
+                        <li>Instock-Owned Intentional Defects: ~5 bps improvement to Ordering CTM with reclassification</li>
+                        <li>Received positive stakeholder feedback confirming improved data trust, actionability, and operational effectiveness</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">AWS Redshift</span>
+                <span class="tech-tag">Data Modeling</span>
+                <span class="tech-tag">ETL</span>
+            </div>
+        </div>
+        
+        <!-- LTO Readiness Detail -->
+        <div id="lto-readiness" class="page">
+            <div class="back-button" onclick="showMain()">← Back to Projects</div>
+            <div class="detail-hero">
+                <h1 class="detail-title">Report on ASIN Readiness Metrics for LTO Selection</h1>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Situation</div>
+                <div class="star-text">Previously, defect checks for LTO ASINs were focused on Procurability rate, which was misleading for manually ordered LTOs. Additional gaps surfaced post defect gate, resulting in items blocked from DC slotting or planogramming. In Q1, LTO item readiness checks expanded to include SCCR and Slotting, which required tracking of 5+ metrics with 10+ SIM resolution paths, making it difficult to reconcile item readiness and maintain accountability with action owners and leadership. Due to ordering nuances for LTO ASINs and reoccurring issues with traditional defect checks, the business needed a single ASIN readiness metric to ensure ASINs being passed off for POG build were procurable, buyable, POG ready, and slotting ready at the defect gate.</div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Task</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Develop a singular readiness metric to check all blockers in one check and provide an accurate % readiness metric vs tracking 5+ different metrics for LTO assortment readiness</li>
+                        <li>Create methodology for tracking readiness across four key areas (Procurability, Buyability, SCCR, DC Slotting)</li>
+                        <li>Establish a calculation formula and tracking mechanism</li>
+                        <li>Define clear requirements for each check category</li>
+                        <li>Implement an automated reporting method for the new metric developed through this process</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Action</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Developed the metric combining 5+ defect and catalog checks into one which is currently used by the defect team and action owners to identify blockers to Assortment Readiness</li>
+                        <li>Created tracking system at the ASIN+FC level for accurate representation of readiness</li>
+                        <li>Established comprehensive checks across four key areas with specific attribute requirements</li>
+                        <li>Set up daily scheduled datanet job with the reporting included in weekly events defects email as well as the Defects WBR reporting for LTO events</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="star-section impact">
+                <div class="star-label">Results & Impact</div>
+                <div class="star-text">
+                    <ul>
+                        <li>This updated metric consolidates 5+ defect and catalog checks into one metric, allowing users to refer to one Assortment Readiness metric vs different defect rates across different metrics and teams</li>
+                        <li>Since a validated sourcing input is a baseline requirement of the metric, the report also checks all blockers at the same time, as opposed to a waterfall logic checking one issue at a time. This provides users with a clear call to action during LTO event defect sprints, resulting in less firefighting and clear selection cut decisions at the defect gate</li>
+                        <li>LTO Assortment Readiness Report is currently used to communicate progress, track completeness of required attributes, and flag necessary actions for LTO ASINs prior to a defect gate</li>
+                        <li>Report helps Category teams achieve the goal of 100% Assortment Readiness by an LTO Event defect gate. Any ASIN that is not Event Ready will be cut from selection at the defect gate</li>
+                        <li>Anecdotally category teams have said the new metric has helped simplify the actions needed to close out defect gaps during the defect gate</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">Automation</span>
+                <span class="tech-tag">Metrics Development</span>
+            </div>
+        </div>
+        
+        <!-- Data Quality Detail -->
+        <div id="data-quality" class="page">
+            <div class="back-button" onclick="showMain()">← Back to Projects</div>
+            <div class="detail-hero">
+                <h1 class="detail-title">Data Accuracy & Quality Improvements in Defect Data</h1>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Situation</div>
+                <div class="star-text">Multiple data quality issues in defects reporting systems were affecting accurate tracking, attribution, and resolution of defects across Amazon Fresh operations. These included incorrect defect owner assignments, false positive defect flags, duplicate data entries, vendor offer recognition issues, and inconsistent VMI/consignment designation. These issues were hindering proper defect assignment, operational efficiency and data-driven decision making.</div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Task</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Improve defect owner attribution in defect omni table to maintain data lineage</li>
+                        <li>Fix logic for identifying holiday slotting defects to prevent false positives</li>
+                        <li>Resolve duplicate row issues in the omnichannel table related to RSC POG data</li>
+                        <li>Diagnose and fix vendor offer recognition issues at specific fulfillment centers</li>
+                        <li>Update VMI and consignment data sources for consistent designation</li>
+                        <li>Update Predictive Sourcing Logic (PSL) ETL job to remove outdated catalog source like Spartan Nash</li>
+                        <li>Fix incorrect manufacturer data in defect reporting</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="star-section">
+                <div class="star-label">Action</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Added raw_defect_owner column to maintain attribution lineage in cases where waterfall attribution masked underlying causes</li>
+                        <li>Fixed logic for identifying slotting defects to prevent false positives when ASINs are actually slotted</li>
+                        <li>Resolved duplicate data issues in the omnichannel table related to RSC POG data</li>
+                        <li>Diagnosed and resolved issue with vendor offer recognition at specific fulfillment center</li>
+                        <li>Updated VMI and consignment data sources to use freshedw.f3rbi_athena_ext.vmi_sot as source of truth</li>
+                        <li>Updated PSL ETL job to remove Spartan Nash catalog as a source to be used in Defect reporting</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="star-section impact">
+                <div class="star-label">Results & Impact</div>
+                <div class="star-text">
+                    <ul>
+                        <li>Enabled proper defect assignment to responsible teams, increasing accountability and improving resolution efficiency</li>
+                        <li>Eliminated incorrect defect flags which resulted in better accuracy of Defects reporting</li>
+                        <li>Improved data integrity and reporting accuracy by eliminating duplicate records</li>
+                        <li>Ensured consistent and accurate VMI designation with the correct Source of truth table used in defects reporting</li>
+                        <li>By consolidating sources and correcting attribution issues, the business now operates from more accurate and comprehensive data</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">AWS Redshift</span>
+                <span class="tech-tag">ETL</span>
+                <span class="tech-tag">Data Quality</span>
+            </div>
+        </div>
     </div>
+    
+    <script>
+        function showDetail(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        function showMain() {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            // Show main page
+            document.getElementById('main-page').classList.add('active');
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
 </body>
 </html>
