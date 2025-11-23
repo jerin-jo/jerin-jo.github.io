@@ -13,14 +13,33 @@
         }
         
         :root {
-            --cyan: #00fff5;
-            --pink: #ff006e;
-            --orange: #ff8c42;
-            --blue: #3d5afe;
-            --bg: #0f0f23;
-            --surface: #1a1a2e;
-            --text: #e4e4e7;
-            --text-dim: #a1a1aa;
+            /* Moonlight Soft Theme - Easy on Eyes (Dark) */
+            --cyan: #82AAFF;
+            --pink: #C792EA;
+            --orange: #F78C6C;
+            --blue: #82AAFF;
+            --bg: #0F111A;
+            --surface: #1A1C28;
+            --text: #D6DEEB;
+            --text-dim: #A9B5C7;
+            --primary: #82AAFF;
+            --accent: #C3E88D;
+            --border: #2E3348;
+        }
+        
+        [data-theme="light"] {
+            /* Light Theme */
+            --cyan: #3b82f6;
+            --pink: #8b5cf6;
+            --orange: #f97316;
+            --blue: #3b82f6;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-dim: #64748b;
+            --primary: #3b82f6;
+            --accent: #10b981;
+            --border: #e2e8f0;
         }
         
         body {
@@ -29,6 +48,7 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         body::before {
@@ -39,8 +59,8 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 10% 20%, rgba(0, 255, 245, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(255, 0, 110, 0.05) 0%, transparent 40%);
+                radial-gradient(circle at 10% 20%, rgba(130, 170, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(199, 146, 234, 0.08) 0%, transparent 50%);
             pointer-events: none;
             z-index: 0;
         }
@@ -156,13 +176,14 @@
         }
         
         .metric-card {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.4));
+            background: var(--surface);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
             padding: 35px 30px;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .metric-card::before {
@@ -172,7 +193,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, transparent 0%, rgba(0, 255, 245, 0.1) 100%);
+            background: linear-gradient(135deg, transparent 0%, rgba(130, 170, 255, 0.1) 100%);
             opacity: 0;
             transition: opacity 0.5s ease;
         }
@@ -183,7 +204,8 @@
         
         .metric-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(0, 255, 245, 0.3);
+            border-color: var(--cyan);
+            box-shadow: 0 12px 24px rgba(130, 170, 255, 0.2);
         }
         
         .metric-value {
@@ -231,17 +253,19 @@
         }
         
         .skill-category {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.6), rgba(26, 26, 46, 0.3));
+            background: var(--surface);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
             padding: 30px;
             border-left: 3px solid var(--cyan);
             transition: all 0.4s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .skill-category:hover {
-            border-color: rgba(0, 255, 245, 0.3);
+            border-color: var(--cyan);
             transform: translateX(5px);
+            box-shadow: 0 8px 16px rgba(130, 170, 255, 0.2);
         }
         
         .skill-title {
@@ -260,6 +284,45 @@
             line-height: 1.8;
         }
         
+        .theme-toggle {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            z-index: 1000;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border-color: var(--cyan);
+        }
+        
+        .theme-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .theme-toggle:hover .theme-icon {
+            transform: rotate(20deg);
+        }
+        
+        .theme-label {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+        
         .projects {
             display: grid;
             gap: 40px;
@@ -267,15 +330,16 @@
         }
         
         .project {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.6), rgba(26, 26, 46, 0.3));
+            background: var(--surface);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
             padding: 50px;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
             opacity: 0;
             animation: fadeSlideUp 1s ease-out forwards;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .project:nth-child(1) { animation-delay: 0.8s; }
@@ -363,7 +427,7 @@
         }
         
         .impact-highlight {
-            background: linear-gradient(135deg, rgba(0, 255, 245, 0.05), rgba(255, 0, 110, 0.05));
+            background: linear-gradient(135deg, rgba(130, 170, 255, 0.1), rgba(247, 140, 108, 0.1));
             border-left: 3px solid var(--cyan);
             padding: 25px;
         }
@@ -383,14 +447,14 @@
             font-family: 'Fira Code', monospace;
             font-size: 0.85rem;
             color: var(--cyan);
-            background: rgba(0, 255, 245, 0.05);
-            border: 1px solid rgba(0, 255, 245, 0.2);
+            background: rgba(130, 170, 255, 0.1);
+            border: 1px solid var(--border);
             padding: 8px 16px;
             transition: all 0.3s ease;
         }
         
         .tech-tag:hover {
-            background: rgba(0, 255, 245, 0.1);
+            background: rgba(130, 170, 255, 0.2);
             border-color: var(--cyan);
             transform: translateY(-2px);
         }
@@ -431,12 +495,13 @@
         }
         
         .star-section {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.6), rgba(26, 26, 46, 0.3));
+            background: var(--surface);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
             padding: 50px;
             margin-bottom: 40px;
             border-left: 4px solid var(--cyan);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .star-label {
@@ -466,12 +531,12 @@
         }
         
         .star-section.impact {
-            background: linear-gradient(135deg, rgba(0, 255, 245, 0.08), rgba(255, 0, 110, 0.08));
-            border-left-color: var(--pink);
+            background: linear-gradient(135deg, rgba(130, 170, 255, 0.1), rgba(247, 140, 108, 0.1));
+            border-left-color: var(--orange);
         }
         
         .star-section.impact .star-label {
-            color: var(--pink);
+            color: var(--orange);
         }
         
         .star-section.impact .star-text {
@@ -481,7 +546,7 @@
         footer {
             text-align: center;
             padding: 60px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid var(--border);
             color: var(--text-dim);
             font-size: 0.9rem;
             opacity: 0;
@@ -508,17 +573,34 @@
             .star-section {
                 padding: 30px 25px;
             }
+            
+            .theme-toggle {
+                top: 20px;
+                right: 20px;
+                padding: 10px 16px;
+            }
+            
+            .theme-label {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
     <div class="noise"></div>
+    
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <span class="theme-icon">🌙</span>
+        <span class="theme-label">Dark Mode</span>
+    </div>
+    
     <div class="container">
         <!-- Main Page -->
         <div id="main-page" class="page active">
             <header>
                 <h1 class="name">Jerin Jose</h1>
-                <p class="tagline">Business Intelligence Engineer crafting data-driven solutions at scale. Specializing in AWS cloud architecture, ETL pipelines, and AI-powered analytics that transform complex data into strategic insights.</p>
+                <p class="tagline">Business Intelligence Engineer crafting data-driven solutions at scale. Specializing in AWS cloud architecture, ETL pipelines, and AI-powered analytics that transform complex data into strategic insights and recommendations.</p>
                 <div class="contact-grid">
                     <a href="mailto:jerinjose1906@gmail.com" class="contact-link">jerinjose1906@gmail.com</a>
                     <a href="https://www.linkedin.com/in/jerinjoseatx" target="_blank" class="contact-link">LinkedIn</a>
@@ -538,12 +620,12 @@
                     <div class="metric-label">Annual Cost Savings</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value">2M+</div>
-                    <div class="metric-label">Products/Day</div>
+                    <div class="metric-value">Petabyte+</div>
+                    <div class="metric-label">Data Processed</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value">90%</div>
-                    <div class="metric-label">Efficiency Gain</div>
+                    <div class="metric-value">5+ Years</div>
+                    <div class="metric-label">Experience</div>
                 </div>
             </div>
             
@@ -1358,6 +1440,44 @@
     </div>
     
     <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            const themeIcon = document.querySelector('.theme-icon');
+            const themeLabel = document.querySelector('.theme-label');
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            if (newTheme === 'light') {
+                themeIcon.textContent = '☀️';
+                themeLabel.textContent = 'Light Mode';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeLabel.textContent = 'Dark Mode';
+            }
+        }
+        
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const html = document.documentElement;
+            const themeIcon = document.querySelector('.theme-icon');
+            const themeLabel = document.querySelector('.theme-label');
+            
+            html.setAttribute('data-theme', savedTheme);
+            
+            if (savedTheme === 'light') {
+                themeIcon.textContent = '☀️';
+                themeLabel.textContent = 'Light Mode';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeLabel.textContent = 'Dark Mode';
+            }
+        });
+        
         function showDetail(pageId) {
             // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
