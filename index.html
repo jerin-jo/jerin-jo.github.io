@@ -1,6 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GQNKMHHGXF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GQNKMHHGXF');
+</script>  <!-- ✅ Close the first script tag HERE -->
+
+<script>
+  // Wait for DOM to load before querying elements
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // Track clicks on project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', () => {
+        gtag('event', 'project_click', {
+          'project_name': card.querySelector('h3')?.innerText
+        });
+      });
+    });
+
+    // Track outbound links (LinkedIn, GitHub, Tableau)
+    document.querySelectorAll('a[href^="http"]').forEach(link => {
+      link.addEventListener('click', () => {
+        gtag('event', 'outbound_click', { 'link_url': link.href });
+      });
+    });
+
+  });
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jerin Jose - Data Engineer & BI Analyst</title> 
